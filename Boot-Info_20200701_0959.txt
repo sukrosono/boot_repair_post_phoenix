@@ -1,0 +1,705 @@
+boot-repair-4ppa125                                              [20200701_0959]
+
+============================== Boot Info Summary ===============================
+
+ => Grub Legacy (v1.1.5) is installed in the MBR of /dev/sda and looks on the 
+    same drive in partition #8 for /grub/stage2 and /grub/menu.lst.
+ => Syslinux MBR (4.04-4.07) is installed in the MBR of /dev/sdb.
+
+sda1: __________________________________________________________________________
+
+    File system:       ntfs
+    Boot sector type:  Windows 8/2012: NTFS
+    Boot sector info:  No errors found in the Boot Parameter Block.
+    Operating System:  Windows 7
+    Boot files:        /bootmgr /Boot/BCD /Windows/System32/winload.exe
+
+sda2: __________________________________________________________________________
+
+    File system:       Extended Partition
+    Boot sector type:  Unknown
+    Boot sector info: 
+
+sda5: __________________________________________________________________________
+
+    File system:       ntfs
+    Boot sector type:  Windows 2000/XP: NTFS
+    Boot sector info:  According to the info in the boot sector, sda5 starts 
+                       at sector 63.
+    Boot file info:      Grub2 (v2.00) in the file 
+                       /manjaro-cinnamon-20.0.3-200606-linux56.iso looks at 
+                       sector 0 of the same hard drive for core.img, but 
+                       core.img can not be found at this location.
+    Operating System:  
+    Boot files:        
+
+sda6: __________________________________________________________________________
+
+    File system:       ext4
+    Boot sector type:  -
+    Boot sector info: 
+    Operating System:  Linux Mint 18.3
+    Boot files:        /boot/grub/grub.cfg /etc/fstab /etc/default/grub 
+                       /boot/grub/i386-pc/core.img
+
+sda7: __________________________________________________________________________
+
+    File system:       swap
+    Boot sector type:  -
+    Boot sector info: 
+
+sda8: __________________________________________________________________________
+
+    File system:       ntfs
+    Boot sector type:  Unknown
+    Boot sector info:  No errors found in the Boot Parameter Block.
+    Operating System:  
+    Boot files:        /grub/menu.lst
+
+sdb1: __________________________________________________________________________
+
+    File system:       vfat
+    Boot sector type:  SYSLINUX 4.07 2013-07-25
+    Boot sector info:  Syslinux looks at sector 3568608 of /dev/sdb1 for its 
+                       second stage. SYSLINUX is installed in the 
+                       multibootusb directory. The 2 ADV sectors are not the 
+                       same (corrupt). No errors found in the Boot Parameter 
+                       Block.
+    Operating System:  
+    Boot files:        /syslinux.cfg /efi/BOOT/bootx64.efi
+
+
+================================ 2 OS detected =================================
+
+OS#1:   Windows 8 on sda1
+OS#2:   Linux Mint 18.3 Sylvia (18.3) on sda6
+
+============================ Architecture/Host Info ============================
+
+CPU architecture: 64-bit
+Live-session OS is Ubuntu 64-bit (Boot-Repair-Disk 64bit 20200604, bionic, x86_64)
+
+
+===================================== UEFI =====================================
+
+This live-session is not in EFI-mode.
+EFI in dmesg.
+[    0.024857] ACPI: UEFI 0x000000008FBFD000 000236 (v01 LENOVO CB-01    00000001 ACPI 00040000)
+
+
+
+============================= Drive/Partition Info =============================
+
+Disks info: ____________________________________________________________________
+
+sda	: notGPT,	no-BIOSboot,	has-noESP, 	not-usb,	not-mmc, has-os,	2048 sectors * 512 bytes
+
+Partitions info (1/3): _________________________________________________________
+
+sda1	: is-os,	32, nopakmgr,	no-docgrub,	nogrub,	nogrubinstall,	no-grubenv,	noupdategrub,	farbios
+sda5	: no-os,	32, nopakmgr,	no-docgrub,	nogrub,	nogrubinstall,	no-grubenv,	noupdategrub,	farbios
+sda6	: is-os,	64, apt-get,	grub-pc ,	grub2,	grub-install,	grubenv-ok,	update-grub,	farbios
+sda8	: no-os,	32, nopakmgr,	no-docgrub,	nogrub,	nogrubinstall,	no-grubenv,	noupdategrub,	farbios
+
+Partitions info (2/3): _________________________________________________________
+
+sda1	: isnotESP,	part-has-no-fstab,	no-nt,	haswinload,	no-recov-nor-hid,	bootmgr,	is-winboot
+sda5	: isnotESP,	part-has-no-fstab,	no-nt,	no-winload,	no-recov-nor-hid,	no-bmgr,	notwinboot
+sda6	: isnotESP,	fstab-without-efi,	no-nt,	no-winload,	no-recov-nor-hid,	no-bmgr,	notwinboot
+sda8	: isnotESP,	part-has-no-fstab,	no-nt,	no-winload,	no-recov-nor-hid,	no-bmgr,	notwinboot
+
+Partitions info (3/3): _________________________________________________________
+
+sda1	: not-sepboot,	no-boot,	part-has-no-fstab,	not-sep-usr,	no---usr,	part-has-no-fstab,	std-grub.d,	sda
+sda5	: not-sepboot,	no-boot,	part-has-no-fstab,	not-sep-usr,	no---usr,	part-has-no-fstab,	std-grub.d,	sda
+sda6	: not-sepboot,	with-boot,	fstab-without-boot,	not-sep-usr,	with--usr,	fstab-without-usr,	std-grub.d,	sda
+sda8	: not-sepboot,	no-boot,	part-has-no-fstab,	not-sep-usr,	no---usr,	part-has-no-fstab,	std-grub.d,	sda
+
+fdisk -l (filtered): ___________________________________________________________
+
+Disk sda: 465.8 GiB, 500107862016 bytes, 976773168 sectors
+Disk identifier: 0xd9fa2484
+      Boot     Start       End   Sectors   Size Id Type
+sda1  *         2048 242501174 242499127 115.6G  7 HPFS/NTFS/exFAT
+sda2       242517294 976771071 734253778 350.1G  f W95 Ext'd (LBA)
+sda5       242517296 649732859 407215564 194.2G  7 HPFS/NTFS/exFAT
+sda6       687491072 976771071 289280000   138G 83 Linux
+sda7       649736192 659173375   9437184   4.5G 82 Linux swap / Solaris
+sda8       659175424 687489023  28313600  13.5G  7 HPFS/NTFS/exFAT
+Partition table entries are not in disk order.
+Disk sdb: 7.2 GiB, 7759462400 bytes, 15155200 sectors
+Disk identifier: 0x00637697
+      Boot Start      End  Sectors  Size Id Type
+sdb1  *     2048 15155199 15153152  7.2G  c W95 FAT32 (LBA)
+Disk zram0: 864.9 MiB, 906842112 bytes, 221397 sectors
+Disk zram1: 864.9 MiB, 906842112 bytes, 221397 sectors
+Disk zram2: 864.9 MiB, 906842112 bytes, 221397 sectors
+Disk zram3: 864.9 MiB, 906842112 bytes, 221397 sectors
+
+parted -lm (filtered): _________________________________________________________
+
+sda:500GB:scsi:512:4096:msdos:ATA WDC WD5000LPCX-2:;
+1:1049kB:124GB:124GB:ntfs::boot;
+2:124GB:500GB:376GB:::lba;
+5:124GB:333GB:208GB:ntfs::;
+7:333GB:337GB:4832MB:linux-swap(v1)::;
+8:337GB:352GB:14.5GB:ntfs::;
+6:352GB:500GB:148GB:ext4::;
+sdb:7759MB:scsi:512:512:msdos:TOSHIBA TransMemory:;
+1:1049kB:7759MB:7758MB:fat32::boot, lba;
+zram3:907MB:unknown:4096:4096:loop:Unknown:;
+1:0.00B:907MB:907MB:linux-swap(v1)::;
+zram1:907MB:unknown:4096:4096:loop:Unknown:;
+1:0.00B:907MB:907MB:linux-swap(v1)::;
+zram2:907MB:unknown:4096:4096:loop:Unknown:;
+1:0.00B:907MB:907MB:linux-swap(v1)::;
+zram0:907MB:unknown:4096:4096:loop:Unknown:;
+1:0.00B:907MB:907MB:linux-swap(v1)::;
+
+blkid (filtered): ______________________________________________________________
+
+NAME   FSTYPE   UUID                                 PARTUUID                             LABEL      PARTLABEL
+sda                                                                                                  
+├─sda1 ntfs     2E9060E19060B0CF                     d9fa2484-01                                     
+├─sda2                                               d9fa2484-02                                     
+├─sda5 ntfs     01CF064A1CD436D0                     d9fa2484-05                          DATA       
+├─sda6 ext4     3f3fce91-72f7-403f-90d2-aaaadc657cbc d9fa2484-06                          my-mint    
+├─sda7 swap     fcf2d5c1-3286-44c0-bf35-d66694ef3e74 d9fa2484-07                          swap       
+└─sda8 ntfs     0677156534D6E353                     d9fa2484-08                          phoenix    
+sdb                                                                                                  
+└─sdb1 vfat     7E4A-535D                            00637697-01                          PHOENIX OS 
+zram0                                                                                                
+zram1                                                                                                
+zram2                                                                                                
+zram3                                                                                                
+
+df (filtered): _________________________________________________________________
+
+       Avail Use% Mounted on
+sda1     2.5G  98% /mnt/boot-sav/sda1
+sda5     2.6G  99% /mnt/boot-sav/sda5
+sda6     3.7G  92% /mnt/boot-sav/sda6
+sda8     7.6G  44% /mnt/boot-sav/sda8
+sdb1     2.5G  66% /cdrom
+
+Mount options: __________________________________________________________________
+
+sda1   rw,relatime,user_id=0,group_id=0,allow_other,blksize=4096
+sda5   rw,relatime,user_id=0,group_id=0,allow_other,blksize=4096
+sda6   rw,relatime
+sda8   rw,relatime,user_id=0,group_id=0,allow_other,blksize=4096
+sdb1   ro,noatime,fmask=0022,dmask=0022,codepage=437,iocharset=iso8859-1,shortname=mixed,errors=remount-ro
+
+====================== sda6/boot/grub/grub.cfg (filtered) ======================
+
+Linux Mint 18.3 Cinnamon 64-bit   3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-76-generic   3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-76-generic (upstart)   gnulinux-4.15.0-76-generic-init-upstart-3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-74-generic   3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-74-generic (upstart)   gnulinux-4.15.0-74-generic-init-upstart-3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-72-generic   3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-72-generic (upstart)   gnulinux-4.15.0-72-generic-init-upstart-3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-60-generic   3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-60-generic (upstart)   gnulinux-4.15.0-60-generic-init-upstart-3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-58-generic   3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-58-generic (upstart)   gnulinux-4.15.0-58-generic-init-upstart-3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-55-generic   3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Linux Mint 18.3 Cinnamon 64-bit, with Linux 4.15.0-55-generic (upstart)   gnulinux-4.15.0-55-generic-init-upstart-3f3fce91-72f7-403f-90d2-aaaadc657cbc
+Windows 8 (loader) (on sda1)   2E9060E19060B0CF
+### END /etc/grub.d/30_os-prober ###
+### END /etc/grub.d/30_uefi-firmware ###
+
+========================== sda6/etc/fstab (filtered) ===========================
+
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda9 during installation
+UUID=3f3fce91-72f7-403f-90d2-aaaadc657cbc /               ext4    errors=remount-ro 0       1
+# swap was on /dev/sda6 during installation
+UUID=59cd01a6-ed30-4cb9-8c16-49b0bded11c5 none            swap    sw              0       0
+# swap was on /dev/sda8 during installation
+UUID=04759099-d723-4ac1-a9c3-9bb1a5e295ad none            swap    sw              0       0
+/dev/disk/by-uuid/01CF064A1CD436D0 /mnt/01CF064A1CD436D0 auto nosuid,nodev,nofail,x-gvfs-show 0 0
+/dev/disk/by-uuid/2E9060E19060B0CF /mnt/win8.1 auto nosuid,nodev,nofail,x-gvfs-show 0 0
+/dev/disk/by-id/mmc-SU08G_0x7199cca0-part1 /mnt/mmc-SU08G_0x7199cca0-part1 auto nosuid,nodev,nofail,noauto,x-gvfs-show,rw 0 0
+
+======================= sda6/etc/default/grub (filtered) =======================
+
+GRUB_DEFAULT=0
+GRUB_HIDDEN_TIMEOUT_QUIET=true
+GRUB_TIMEOUT=10
+GRUB_DISTRIBUTOR=`lsb_release -i -s 2> /dev/null || echo Debian`
+GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+GRUB_CMDLINE_LINUX=""
+
+==================== sda6: Location of files loaded by Grub ====================
+
+           GiB - GB             File                                 Fragment(s)
+ 434.542537689 = 466.586497024  boot/grub/grub.cfg                             1
+ 451.958278656 = 485.286506496  boot/grub/i386-pc/core.img                     1
+ 405.578868866 = 435.486994432  boot/vmlinuz-4.15.0-55-generic                 1
+ 455.408351898 = 488.990994432  boot/vmlinuz-4.15.0-58-generic                 4
+ 410.721923828 = 441.009307648  boot/vmlinuz-4.15.0-60-generic                 2
+ 409.929866791 = 440.158842880  boot/vmlinuz-4.15.0-72-generic                 2
+ 385.374973297 = 413.793226752  boot/vmlinuz-4.15.0-74-generic                 5
+ 430.501041412 = 462.246973440  boot/vmlinuz-4.15.0-76-generic                 4
+ 430.501041412 = 462.246973440  vmlinuz                                        4
+ 385.374973297 = 413.793226752  vmlinuz.old                                    5
+ 435.547508240 = 467.665575936  boot/initrd.img-4.15.0-55-generic             10
+ 371.809276581 = 399.227170816  boot/initrd.img-4.15.0-58-generic             122
+ 361.210395813 = 387.846709248  boot/initrd.img-4.15.0-60-generic             33
+ 365.424995422 = 392.372101120  boot/initrd.img-4.15.0-72-generic             36
+ 441.477870941 = 474.033254400  boot/initrd.img-4.15.0-74-generic             39
+ 372.182136536 = 399.627526144  boot/initrd.img-4.15.0-76-generic              7
+ 372.182136536 = 399.627526144  initrd.img                                     7
+ 441.477870941 = 474.033254400  initrd.img.old                                39
+
+===================== sda6: ls -l /etc/grub.d/ (filtered) ======================
+
+-rwxr-xr-x 1 root root  1180 Oct 25  2014 06_mint_theme
+-rwxr-xr-x 1 root root 12552 Nov  5  2017 10_linux
+-rwxr-xr-x 1 root root 10634 Oct  1  2012 10_lupin
+-rwxr-xr-x 1 root root 11082 Nov  5  2017 20_linux_xen
+-rwxr-xr-x 1 root root 11692 Nov  5  2017 30_os-prober
+-rwxr-xr-x 1 root root  1418 Nov  5  2017 30_uefi-firmware
+-rwxr-xr-x 1 root root   214 Nov  5  2017 40_custom
+-rwxr-xr-x 1 root root   216 Nov  5  2017 41_custom
+
+======================== sda6/etc/grub.d/06_mint_theme =========================
+
+#!/bin/sh
+set -e
+. /usr/lib/grub/grub-mkconfig_lib
+set_mono_theme()
+{
+  cat << EOF
+set menu_color_normal=white/black
+set menu_color_highlight=white/light-gray
+EOF
+}
+# check for usable backgrounds
+use_bg=false
+#if [ "$GRUB_TERMINAL_OUTPUT" = "gfxterm" ] ; then
+#  for i in {/boot/grub,/usr/share/images/desktop-base}/linuxmint.{png,tga} ; do
+#    if is_path_readable_by_grub $i ; then 
+#      bg=$i
+#      case ${bg} in
+#        *.png)		reader=png ;;
+#        *.tga)		reader=tga ;;
+#        *.jpg|*.jpeg)	reader=jpeg ;;
+#      esac
+#      if test -e /boot/grub/${reader}.mod ; then
+#        echo "Found Debian background: `basename ${bg}`" >&2
+#        #use_bg=true
+#        break
+#      fi
+#    fi
+#  done
+#fi
+# set the background if possible
+#if ${use_bg} ; then
+#  prepare_grub_to_access_device `${grub_probe} --target=device ${bg}`
+#  cat << EOF
+#insmod ${reader}
+#if background_image `make_system_path_relative_to_its_root ${bg}` ; then
+#  set color_normal=white/black
+#  set color_highlight=white/light-gray
+#else
+#EOF
+#fi
+# otherwise, set a monochromatic theme for Ubuntu
+#if ${use_bg} ; then
+#  set_mono_theme | sed -e "s/^/  /g"
+#  echo "fi"
+#else
+set_mono_theme
+#fi
+
+=========================== sda6/etc/grub.d/10_lupin ===========================
+
+#! /bin/sh
+set -e
+# grub-mkconfig helper script for lupin. Some of this is based on 10_linux,
+# but with irrelevant bits removed and the rest extended to cope with
+# loopback mounts.
+#
+# Copyright (C) 2006,2007,2008,2009,2010  Free Software Foundation, Inc.
+# Copyright (C) 2009  Canonical Ltd.
+#
+# GRUB is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# GRUB is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with GRUB.  If not, see <http://www.gnu.org/licenses/>.
+prefix="/usr"
+exec_prefix="${prefix}"
+datarootdir="${prefix}/share"
+. "${datarootdir}/grub/grub-mkconfig_lib"
+export TEXTDOMAIN=grub
+export TEXTDOMAINDIR="${datarootdir}/locale"
+CLASS="--class gnu-linux --class gnu --class os"
+if [ "x${GRUB_DISTRIBUTOR}" = "x" ] ; then
+  OS=GNU/Linux
+else
+  OS="${GRUB_DISTRIBUTOR}"
+  CLASS="--class $(echo ${GRUB_DISTRIBUTOR} | tr 'A-Z' 'a-z' | cut -d' ' -f1) ${CLASS}"
+fi
+case ${GRUB_DEVICE} in
+  /dev/loop/*|/dev/loop[0-9])
+    loop_file=`losetup ${GRUB_DEVICE} | sed -e "s/^[^(]*(\([^)]\+\)).*/\1/"`
+  ;;
+esac
+# Is the root filesystem loop-mounted from a file on another filesystem?
+if [ "x${loop_file}" = x ] || [ ! -f "${loop_file}" ]; then
+  exit 0
+fi
+dev_mountpoint="$(awk '"'${loop_file}'" ~ "^"$2 && $2 != "/" { print $1";"$2 }' /proc/mounts | tail -n1)"
+host_device="${dev_mountpoint%;*}"
+host_mountpoint="${dev_mountpoint#*;}"
+if [ "x${host_device}" = x ]; then
+  exit 0
+fi
+loop_file_relative="${loop_file#$host_mountpoint}"
+# Device containing the host filesystem.
+host_device_uuid="`${grub_probe} --device "${host_device}" --target=fs_uuid 2> /dev/null`" || true
+if [ "x${host_device_uuid}" = "x" ] || [ "x${GRUB_DISABLE_LINUX_UUID}" = "xtrue" ] \
+    || ! test -e "/dev/disk/by-uuid/${host_device_uuid}" \
+    || [ "`${grub_probe} -t abstraction --device ${host_device} | sed -e 's,.*\(lvm\).*,\1,'`" = "lvm"  ] ; then
+  LINUX_HOST_DEVICE=${host_device}
+else
+  LINUX_HOST_DEVICE=UUID=${host_device_uuid}
+fi
+GRUBFS="`${grub_probe} --device ${GRUB_DEVICE} --target=fs 2>/dev/null || true`"
+if [ x"$GRUBFS" = x ]; then
+    GRUBFS="$(stat -f --printf=%T / || true)"
+fi
+case x"$GRUBFS" in
+    xbtrfs)
+	rootsubvol="`make_system_path_relative_to_its_root /`"
+	rootsubvol="${rootsubvol#/}"
+	if [ "x${rootsubvol}" != x ]; then
+	    GRUB_CMDLINE_LINUX="rootflags=subvol=${rootsubvol} ${GRUB_CMDLINE_LINUX}"
+	fi;;
+    xzfs)
+	rpool=`${grub_probe} --device ${GRUB_DEVICE} --target=fs_label 2>/dev/null || true`
+	bootfs="`make_system_path_relative_to_its_root / | sed -e "s,@$,,"`"
+	LINUX_ROOT_DEVICE="ZFS=${rpool}${bootfs}"
+	;;
+esac
+title_correction_code=
+for word in $GRUB_CMDLINE_LINUX_DEFAULT; do
+  if [ "$word" = splash ]; then
+    GRUB_CMDLINE_LINUX_DEFAULT="$GRUB_CMDLINE_LINUX_DEFAULT \$vt_handoff"
+  fi
+done
+# add crashkernel option if we have the required tools
+if [ -x "/usr/bin/makedumpfile" ] && [ -x "/sbin/kexec" ]; then
+    GRUB_CMDLINE_EXTRA="$GRUB_CMDLINE_EXTRA crashkernel=384M-2G:64M,2G-:128M"
+fi
+lupin_entry ()
+{
+  os="$1"
+  version="$2"
+  type="$3"
+  args="$4"
+  if [ -z "$boot_device_id" ]; then
+      boot_device_id="$(grub_get_device_id "${GRUB_DEVICE}")"
+  fi
+  if [ x$type != xsimple ] ; then
+      case $type in
+	  recovery)
+	      title="$(gettext_printf "%s, with Linux %s (recovery mode)" "${os}" "${version}")" ;;
+	  *)
+	      title="$(gettext_printf "%s, with Linux %s" "${os}" "${version}")" ;;
+      esac
+      if [ x"$title" = x"$GRUB_ACTUAL_DEFAULT" ] || [ x"Previous Linux versions>$title" = x"$GRUB_ACTUAL_DEFAULT" ]; then
+	  replacement_title="$(echo "Advanced options for ${OS}" | sed 's,>,>>,g')>$(echo "$title" | sed 's,>,>>,g')"
+	  quoted="$(echo "$GRUB_ACTUAL_DEFAULT" | grub_quote)"
+	  title_correction_code="${title_correction_code}if [ \"x\$default\" = '$quoted' ]; then default='$(echo "$replacement_title" | grub_quote)'; fi;"
+	  grub_warn "$(gettext_printf "Please don't use old title \`%s' for GRUB_DEFAULT, use \`%s' (for versions before 2.00) or \`%s' (for 2.00 or later)" "$GRUB_ACTUAL_DEFAULT" "$replacement_title" "gnulinux-advanced-$boot_device_id>gnulinux-$version-$type-$boot_device_id")"
+      fi
+      echo "menuentry '$(echo "$title" | grub_quote)' ${CLASS} \$menuentry_id_option 'gnulinux-$version-$type-$boot_device_id' {" | sed "s/^/$submenu_indentation/"
+  else
+      echo "menuentry '$(echo "$os" | grub_quote)' ${CLASS} \$menuentry_id_option 'gnulinux-simple-$boot_device_id' {" | sed "s/^/$submenu_indentation/"
+  fi      
+  if [ x$type != xrecovery ] ; then
+      save_default_entry | sed -e "s/^/\t/"
+      echo "	gfxmode \$linux_gfx_mode" | sed "s/^/$submenu_indentation/"
+  fi
+  echo "	insmod gzio" | sed "s/^/$submenu_indentation/"
+  if [ -z "${prepare_boot_cache}" ]; then
+    prepare_boot_cache="$(prepare_grub_to_access_device ${GRUB_DEVICE_BOOT} | sed -e "s/^/\t/")"
+  fi
+  printf '%s\n' "${prepare_boot_cache}" | sed "s/^/$submenu_indentation/"
+  if [ x$type != xsimple ]; then
+    message="$(gettext_printf "Loading Linux %s ..." ${version})"
+    sed "s/^/$submenu_indentation/" << EOF
+	echo	'$(echo "$message" | grub_quote)'
+EOF
+  fi
+  sed "s/^/$submenu_indentation/" << EOF
+	linux	${rel_dirname}/${basename} root=${LINUX_HOST_DEVICE} loop=${loop_file_relative} ro ${args}
+EOF
+  if test -n "${initrd}" ; then
+    # TRANSLATORS: ramdisk isn't identifier. Should be translated.
+    if [ x$type != xsimple ]; then
+      message="$(gettext_printf "Loading initial ramdisk ...")"
+      sed "s/^/$submenu_indentation/" << EOF
+	echo	'$(echo "$message" | grub_quote)'
+EOF
+    fi
+    sed "s/^/$submenu_indentation/" << EOF
+	initrd	${rel_dirname}/${initrd}
+EOF
+  fi
+  sed "s/^/$submenu_indentation/" << EOF
+}
+EOF
+}
+machine=`uname -m`
+case "x$machine" in
+    xi?86 | xx86_64)
+	list=`for i in /boot/vmlinuz-* /vmlinuz-* /boot/kernel-* ; do
+                  if grub_file_is_not_garbage "$i" ; then echo -n "$i " ; fi
+              done` ;;
+    *) 
+	list=`for i in /boot/vmlinuz-* /boot/vmlinux-* /vmlinuz-* /vmlinux-* /boot/kernel-* ; do
+                  if grub_file_is_not_garbage "$i" ; then echo -n "$i " ; fi
+	     done` ;;
+esac
+case "$machine" in
+    i?86) GENKERNEL_ARCH="x86" ;;
+    mips|mips64) GENKERNEL_ARCH="mips" ;;
+    mipsel|mips64el) GENKERNEL_ARCH="mipsel" ;;
+    arm*) GENKERNEL_ARCH="arm" ;;
+    *) GENKERNEL_ARCH="$machine" ;;
+esac
+prepare_boot_cache=
+boot_device_id=
+title_correction_code=
+cat << 'EOF'
+function gfxmode {
+	set gfxpayload="${1}"
+	if [ "${1}" = "keep" ]; then
+		set vt_handoff=vt.handoff=7
+	else
+		set vt_handoff=
+	fi
+}
+EOF
+# Use ELILO's generic "efifb" when it's known to be available.
+# FIXME: We need an interface to select vesafb in case efifb can't be used.
+if [ "x$GRUB_GFXPAYLOAD_LINUX" != x ]; then
+  echo "set linux_gfx_mode=$GRUB_GFXPAYLOAD_LINUX"
+else
+  cat << EOF
+if [ "\${recordfail}" != 1 ]; then
+  if [ -e \${prefix}/gfxblacklist.txt ]; then
+    if hwmatch \${prefix}/gfxblacklist.txt 3; then
+      if [ \${match} = 0 ]; then
+        set linux_gfx_mode=keep
+      else
+        set linux_gfx_mode=text
+      fi
+    else
+      set linux_gfx_mode=text
+    fi
+  else
+    set linux_gfx_mode=keep
+  fi
+else
+  set linux_gfx_mode=text
+fi
+EOF
+fi
+cat << EOF
+export linux_gfx_mode
+if [ "\${linux_gfx_mode}" != "text" ]; then load_video; fi
+EOF
+# Extra indentation to add to menu entries in a submenu. We're not in a submenu
+# yet, so it's empty. In a submenu it will be equal to '\t' (one tab).
+submenu_indentation=""
+is_first_entry=true
+while [ "x$list" != "x" ] ; do
+  linux=`version_find_latest $list`
+  gettext_printf "Found linux image: %s\n" "$linux" >&2
+  basename=`basename $linux`
+  dirname=`dirname $linux`
+  rel_dirname=`make_system_path_relative_to_its_root $dirname`
+  version=`echo $basename | sed -e "s,^[^0-9]*-,,g"`
+  alt_version=`echo $version | sed -e "s,\.old$,,g"`
+  linux_root_device_thisversion="${LINUX_ROOT_DEVICE}"
+  initrd=
+  for i in "initrd.img-${version}" "initrd-${version}.img" "initrd-${version}.gz" \
+	   "initrd-${version}" "initramfs-${version}.img" \
+	   "initrd.img-${alt_version}" "initrd-${alt_version}.img" \
+	   "initrd-${alt_version}" "initramfs-${alt_version}.img" \
+	   "initramfs-genkernel-${version}" \
+	   "initramfs-genkernel-${alt_version}" \
+	   "initramfs-genkernel-${GENKERNEL_ARCH}-${version}" \
+	   "initramfs-genkernel-${GENKERNEL_ARCH}-${alt_version}"; do
+    if test -e "${dirname}/${i}" ; then
+      initrd="$i"
+      break
+    fi
+  done
+  config=
+  for i in "${dirname}/config-${version}" "${dirname}/config-${alt_version}" "/etc/kernels/kernel-config-${version}" ; do
+    if test -e "${i}" ; then
+      config="${i}"
+      break
+    fi
+  done
+  initramfs=
+  if test -n "${config}" ; then
+      initramfs=`grep CONFIG_INITRAMFS_SOURCE= "${config}" | cut -f2 -d= | tr -d \"`
+  fi
+  if test -n "${initrd}" ; then
+    gettext_printf "Found initrd image: %s\n" "${dirname}/${initrd}" >&2
+  else
+    # None of this can work without an initrd, so don't even bother.
+    list=`echo $list | tr ' ' '\n' | grep -vx $linux | tr '\n' ' '`
+    continue
+  fi
+  if [ "x$is_first_entry" = xtrue ]; then
+    lupin_entry "${OS}" "${version}" simple \
+    "${GRUB_CMDLINE_LINUX} ${GRUB_CMDLINE_EXTRA} ${GRUB_CMDLINE_LINUX_DEFAULT}"
+    submenu_indentation="\t"
+    
+    if [ -z "$boot_device_id" ]; then
+	boot_device_id="$(grub_get_device_id "${GRUB_DEVICE}")"
+    fi
+    # TRANSLATORS: %s is replaced with an OS name
+    echo "submenu '$(gettext_printf "Advanced options for %s" "${OS}" | grub_quote)' \$menuentry_id_option 'gnulinux-advanced-$boot_device_id' {"
+  fi
+  lupin_entry "${OS}" "${version}" advanced \
+              "${GRUB_CMDLINE_LINUX} ${GRUB_CMDLINE_EXTRA} ${GRUB_CMDLINE_LINUX_DEFAULT}"
+  if [ "x${GRUB_DISABLE_RECOVERY}" != "xtrue" ]; then
+    if [ -x /lib/recovery-mode/recovery-menu ]; then
+      lupin_entry "${OS}" "${version}" recovery \
+		  "recovery nomodeset ${GRUB_CMDLINE_LINUX}"
+    else
+      lupin_entry "${OS}" "${version}" recovery \
+		  "single nomodeset ${GRUB_CMDLINE_LINUX}"
+    fi
+  fi
+  list=`echo $list | tr ' ' '\n' | grep -vx $linux | tr '\n' ' '`
+  is_first_entry=false
+done
+# If at least one kernel was found, then we need to
+# add a closing '}' for the submenu command.
+if [ x"$is_first_entry" != xtrue ]; then
+  echo '}'
+fi
+echo "$title_correction_code"
+
+======================== sda8/grub/menu.lst (filtered) =========================
+
+default=0
+timeout=6
+splashimage=/grub/android-x86.xpm.gz
+root (hd0,7)
+title Phoenix OS
+	kernel /PhoenixOS/kernel quiet root=/dev/ram0 androidboot.selinux=permissive buildvariant=userdebug SRC=/PhoenixOS
+	initrd /PhoenixOS/initrd.img
+
+==================== sda8: Location of files loaded by Grub ====================
+
+           GiB - GB             File                                 Fragment(s)
+            ?? = ??             grub/menu.lst
+            ?? = ??             grub/stage2                                    1
+
+========================= sdb1/syslinux.cfg (filtered) =========================
+
+DEFAULT loadconfig
+
+LABEL loadconfig
+  CONFIG /isolinux/syslinux.cfg
+  APPEND /isolinux/
+
+==================== sdb1: Location of files loaded by Grub ====================
+
+           GiB - GB             File                                 Fragment(s)
+            ?? = ??             initrd.img                                     1
+
+================== sdb1: Location of files loaded by Syslinux ==================
+
+           GiB - GB             File                                 Fragment(s)
+            ?? = ??             syslinux.cfg                                   1
+
+
+======================== Unknown MBRs/Boot Sectors/etc =========================
+
+Unknown BootLoader on sda2
+
+00000000  7d 69 a1 b9 65 af c6 dd  f5 1f 30 fc 97 60 fb bf  |}i..e.....0..`..|
+00000010  ac 48 b5 82 10 3e fe 9a  b5 e0 66 18 8b 02 4f 9a  |.H...>....f...O.|
+00000020  6a 33 6c 6c 6d 7e 2e ea  5c 40 db 5e 4d 6e fc 9e  |j3llm~..\@.^Mn..|
+00000030  ea 32 85 8d 94 bd c4 62  16 b3 3f 42 c3 19 f0 b4  |.2.....b..?B....|
+00000040  ac 76 2c e2 d5 5c 37 81  b5 8a 85 fd 9a d3 f6 db  |.v,..\7.........|
+00000050  26 8f bf 8b 98 db a1 c4  ed fe 9e 1b c0 46 36 c5  |&............F6.|
+00000060  3a be b5 bf 37 ca c5 a4  4b 5a 53 6d 29 f0 de 00  |:...7...KZSm)...|
+00000070  2a 66 48 73 85 ed e3 bc  83 61 4a 64 e1 fb b9 54  |*fHs.....aJd...T|
+00000080  29 30 7e ae 9b 9a 41 e8  45 ed 83 8a e1 ee b8 48  |)0~...A.E......H|
+00000090  a8 6e 1f 12 8d d1 6d 06  74 c2 65 5a 67 3c ad bf  |.n....m.t.eZg<..|
+000000a0  55 f7 8f 05 31 ba 41 ff  1c 2a 48 c5 7e 64 23 ac  |U...1.A..*H.~d#.|
+000000b0  e9 e4 a2 9b 86 74 e1 85  2e 68 43 bc 0f 90 6c 34  |.....t...hC...l4|
+000000c0  c8 b0 30 07 4c 41 1a e2  cf e5 45 8a 49 f6 04 12  |..0.LA....E.I...|
+000000d0  2a 80 12 86 8a 01 86 dc  8e fd 66 a5 4d 29 56 4b  |*.........f.M)VK|
+000000e0  b2 24 99 16 3c 18 04 46  cf 3a 45 98 86 40 ff 02  |.$..<..F.:E..@..|
+000000f0  a2 a3 1f 53 1e 41 a8 e0  11 69 10 14 8a 11 06 ee  |...S.A...i......|
+00000100  12 a6 17 50 f4 99 f9 2b  0d 5f a1 6e 0b 53 d2 ac  |...P...+._.n.S..|
+00000110  fb 4f a8 97 80 81 04 03  70 86 8e 54 08 53 c1 4c  |.O......p..T.S.L|
+00000120  90 38 00 08 00 4d 25 41  e3 20 6a c0 50 3a 58 07  |.8...M%A. j.P:X.|
+00000130  01 a8 80 06 10 b1 e5 a1  d1 aa 01 2a 73 d2 3e f7  |...........*s.>.|
+00000140  1c 9f 34 e2 2d 09 d8 f4  4a 07 1b 8d b5 2a d9 29  |..4.-...J....*.)|
+00000150  58 1e 19 08 8d f2 be 6e  dc 52 e2 78 ea 2c ac 58  |X......n.R.x.,.X|
+00000160  65 f0 6a 58 6f aa 3b cd  72 ef 08 8d 97 96 13 f2  |e.jXo.;.r.......|
+00000170  65 1a a8 c7 18 9a 88 01  da 23 30 3d d1 20 3c 5e  |e........#0=. <^|
+00000180  95 f8 fb 05 fe bc f5 cf  20 94 e1 aa 75 63 8d 45  |........ ...uc.E|
+00000190  37 fe 20 20 36 09 9e 38  ec 33 d4 8f 06 6d 01 e0  |7.  6..8.3...m..|
+000001a0  1e 87 84 8c 00 1d 44 51  5b 44 cc 92 07 3d c5 47  |......DQ[D...=.G|
+000001b0  b1 18 86 53 0f a5 2c bc  c9 1c 94 65 58 1e 00 fe  |...S..,....eX...|
+000001c0  ff ff 07 fe ff ff 02 00  00 00 cc 9d 45 18 00 fe  |............E...|
+000001d0  ff ff 05 fe ff ff d2 ba  85 1a 00 18 3e 11 00 00  |............>...|
+000001e0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+000001f0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 55 aa  |..............U.|
+00000200
+
+Unknown BootLoader on sda8
+
+00000000  eb 52 90 4e 54 46 53 20  20 20 20 00 02 08 00 00  |.R.NTFS    .....|
+00000010  00 00 00 00 00 f8 00 00  3f 00 ff 00 00 38 4a 27  |........?....8J'|
+00000020  00 00 00 00 80 00 80 00  ff 07 b0 01 00 00 00 00  |................|
+00000030  04 00 00 00 00 00 00 00  7f 00 1b 00 00 00 00 00  |................|
+00000040  f6 00 00 00 01 00 00 00  53 e3 d6 34 65 15 77 06  |........S..4e.w.|
+00000050  00 00 00 00 0e 1f be 71  7c ac 22 c0 74 0b 56 b4  |.......q|.".t.V.|
+00000060  0e bb 07 00 cd 10 5e eb  f0 32 e4 cd 16 cd 19 eb  |......^..2......|
+00000070  fe 54 68 69 73 20 69 73  20 6e 6f 74 20 61 20 62  |.This is not a b|
+00000080  6f 6f 74 61 62 6c 65 20  64 69 73 6b 2e 20 50 6c  |ootable disk. Pl|
+00000090  65 61 73 65 20 69 6e 73  65 72 74 20 61 20 62 6f  |ease insert a bo|
+000000a0  6f 74 61 62 6c 65 20 66  6c 6f 70 70 79 20 61 6e  |otable floppy an|
+000000b0  64 0d 0a 70 72 65 73 73  20 61 6e 79 20 6b 65 79  |d..press any key|
+000000c0  20 74 6f 20 74 72 79 20  61 67 61 69 6e 20 2e 2e  | to try again ..|
+000000d0  2e 20 0d 0a 00 00 00 00  00 00 00 00 00 00 00 00  |. ..............|
+000000e0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+*
+000001f0  00 00 00 00 00 00 00 00  00 00 00 00 00 00 55 aa  |..............U.|
+00000200
+
+
+=============================== StdErr Messages ================================
+
+File descriptor 63 (pipe:[45197]) leaked on lvs invocation. Parent PID 1859: /bin/bash
+
+Suggested repair: ______________________________________________________________
+
+The default repair of the Boot-Repair utility would reinstall the grub2 of
+sda6 into the MBR of sda.
+Additional repair would be performed: unhide-bootmenu-10s      
